@@ -29,7 +29,7 @@ Class APITest extends PHPUnit_Framework_TestCase {
         $body = json_decode($resposta->getBody(), true);
 
         $this->assertEquals(200, $resposta->getStatusCode());
-        $this->assertEquals("application/json", $resposta->getHeader("content-type")[0]);
+        $this->assertEquals("application/json", $resposta->getHeader("Content-Type")[0]);
         echo $body['message'];
 
     }
@@ -39,7 +39,7 @@ Class APITest extends PHPUnit_Framework_TestCase {
         $respota = $this->mContex->get("", $this->param);
 
         $this->assertEquals(200, $respota->getStatusCode());
-        $this->assertEquals("application/json", $respota->getHeader("content-type")[0]);
+        $this->assertEquals("application/json", $respota->getHeader("Content-Type")[0]);
 
         $body = json_decode($respota->getBody(), true);
 
@@ -53,7 +53,7 @@ Class APITest extends PHPUnit_Framework_TestCase {
         $respota = $this->mContex->get("pedido", $this->param);
 
         $this->assertEquals(200, $respota->getStatusCode());
-        $this->assertEquals("application/json", $respota->getHeader("content-type")[0]);
+        $this->assertEquals("application/json", $respota->getHeader("Content-Type")[0]);
 
         $body = json_decode($respota->getBody(), true);
 
@@ -80,7 +80,6 @@ Class APITest extends PHPUnit_Framework_TestCase {
         $body = $resposta->getBody();
        
         $this->assertEquals(200, $resposta->getStatusCode());
-        $this->assertEquals("application/json", $resposta->getHeader("content-type")[0]);
-        echo $body['message'];
+//        $this->assertEquals("application/json", $resposta->getHeader("Content-Type")[0]);
     }
 }
