@@ -69,24 +69,26 @@ $app->get('/pedido/:id', function ($id) use ($app) {
 
 $app->post('/pedido', function() use ($app) {
 
-//    $produto = new Produto(
-//            $app->request()->post("produtoId"),
-//            $app->request()->post("produtoNome"),
-//            $app->request()->post("produtoEstoque"),
-//            $app->request()->post("produtoValor")
-//    );
-//
-//    $pedido = new Pedido();
-//    $pedidoServico = new PedidoServicos();
-//    
-//    $status = $pedidoServico->salvar($pedido->addItemPedido($produto, $app->request()->post("quantidade")));
-//    
+    $produto = new Produto(
+            $app->request()->post("produtoId"),
+            $app->request()->post("produtoNome"),
+            $app->request()->post("produtoEstoque"),
+            $app->request()->post("produtoValor")
+    );
+    
+    $pedido = new Pedido();
+    $pedidoServico = new PedidoServicos();
+    
+    $pedido->addItemPedido($produto, $app->request()->post("quantidade"));
+    
+    $status = $pedidoServico->salvar($pedido);
+    
     header("Content-Type: application/json");
     header('HTTP/1.0 200 OK');
     
     echo json_encode(Array(
-        'status' => '$status',
-        'message' => ('$status' == 'success' ? "Pedido adicionado com sucesso" : "Error ao adicionar um novo pedido"),
+        'status' => $status,
+        'message' => ($status == 'Sucesso' ? "Pedido adicionado com sucesso" : "Error ao adicionar um novo pedido"),
     ));
 });
 

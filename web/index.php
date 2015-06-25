@@ -18,6 +18,10 @@
                     <li><a href="listaritens.php" id="listaritens">Listar itens</a></li>
                     <li><a href="verpedido.php" id="verpedido">Ver pedido</a></li>
                     <li><a href="novopedido.php" id="novopedido">Novo pedido</a></li>
+                    <li>
+                        <a onclick="confirm('Tem certeza?');
+                                alert('Faça login antes');" id="meuspedidos">Meus pedidos</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -41,6 +45,13 @@
 
         <div class="container">
             <div class="section">
+
+                <script>
+                    setTimeout(function () {
+                        $("#mensagem-magica").css("display", "block");
+                    }, 7000);
+                </script>
+                <div class="center" id="mensagem-magica" style="display: none">Voce e paciente!</div>
 
                 <!--   Icon Section   -->
                 <div class="row">
